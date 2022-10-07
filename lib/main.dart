@@ -1,9 +1,14 @@
-import 'package:experience_day_iatros/app/ui/home/home_screen.dart';
 import 'package:experience_day_iatros/app/ui/task/task_overview.dart';
+import 'package:experience_day_iatros/app/ui/task/task_screen.dart';
 import 'package:experience_day_iatros/app/ui/theme.dart';
+import 'package:experience_day_iatros/locator.dart';
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
 
 void main() {
+  Logger.root.level = Level.FINEST;
+
+  Locator.init();
   runApp(const MyApp());
 }
 
@@ -19,7 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'task': (context) => const TaskOverviewScreen(),
       },
-      home: const HomeScreen(),
+      home: const TaskScreen(),
     );
   }
 }
