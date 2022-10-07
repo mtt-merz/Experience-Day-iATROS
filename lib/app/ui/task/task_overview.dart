@@ -25,8 +25,11 @@ class TaskOverviewScreen extends StatelessWidget {
                 children: [
                   // Medicine
                   ListTile(
-                    title: Text('Medicine name',
-                        style: Theme.of(context).textTheme.labelMedium),
+                    title: Padding(
+                      padding: const EdgeInsets.only(bottom: 4),
+                      child: Text('Medicine name',
+                          style: Theme.of(context).textTheme.labelMedium),
+                    ),
                     subtitle: Text(task.title,
                         style: Theme.of(context).textTheme.bodyLarge),
                     leading: const Icon(Icons.task_alt),
@@ -35,20 +38,39 @@ class TaskOverviewScreen extends StatelessWidget {
                   // Time
                   const Divider(),
                   ListTile(
-                    title: Text('Time & Quantity',
-                        style: Theme.of(context).textTheme.labelMedium),
-                    subtitle: Text('...',
-                        style: Theme.of(context).textTheme.bodyLarge),
+                    title: Padding(
+                      padding: const EdgeInsets.only(bottom: 4),
+                      child: Text('Time & Quantity',
+                          style: Theme.of(context).textTheme.labelMedium),
+                    ),
+                    subtitle: Row(
+                      children: [
+                        Text(
+                            TimeOfDay.fromDateTime(task.dueDate)
+                                .format(context),
+                            style: Theme.of(context).textTheme.bodyLarge),
+                        if (task.dose.isNotEmpty) ...[
+                          const SizedBox(width: 10),
+                          const Icon(Icons.circle),
+                          const SizedBox(width: 10),
+                          Text('${task.dose} pill',
+                              style: Theme.of(context).textTheme.bodyLarge),
+                        ]
+                      ],
+                    ),
                     leading: const Icon(Icons.timer),
                   ),
 
                   // Description
                   const Divider(),
                   ListTile(
-                      title: Text('Description',
-                          style: Theme.of(context).textTheme.labelMedium),
+                      title: Padding(
+                        padding: const EdgeInsets.only(bottom: 4),
+                        child: Text('Description',
+                            style: Theme.of(context).textTheme.labelMedium),
+                      ),
                       subtitle: Text(task.description,
-                          style: Theme.of(context).textTheme.bodyLarge),
+                          style: Theme.of(context).textTheme.titleSmall),
                       leading: const Icon(Icons.document_scanner))
                 ],
               ),

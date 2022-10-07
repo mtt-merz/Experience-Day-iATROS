@@ -2,13 +2,14 @@ import 'package:experience_day_iatros/app/utils/size.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const _borderRadius = 2.3 * 2;
+final _borderRadius = Utils.transformSize(2.3);
 const _primaryColor = Color(0xff01aeef);
 
 ThemeData get customThemeData => ThemeData(
       appBarTheme: _appBarTheme,
       bottomNavigationBarTheme: _bottomNavigationBarTheme,
       cardTheme: _cardTheme,
+      dialogTheme: _dialogTheme,
       dividerTheme: _dividerTheme,
       elevatedButtonTheme: _elevatedButtonTheme,
       listTileTheme: _listTileTheme,
@@ -37,6 +38,11 @@ final _cardTheme = CardTheme(
   elevation: 5,
   margin: EdgeInsets.symmetric(horizontal: Utils.transformSize(2.7))
       .copyWith(bottom: Utils.transformSize(2.7)),
+  shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(_borderRadius)),
+);
+
+final _dialogTheme = DialogTheme(
   shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(_borderRadius)),
 );
@@ -83,6 +89,10 @@ final _textTheme = TextTheme(
   // ListTile title
   titleMedium: GoogleFonts.montserrat(
       fontSize: Utils.transformFont(5.3), fontWeight: FontWeight.w600),
+
+  titleSmall: GoogleFonts.montserrat(
+      fontSize: Utils.transformFont(4.7), fontWeight: FontWeight.w600),
+
 
   // Elevated button
   labelLarge: GoogleFonts.montserrat(

@@ -10,7 +10,10 @@ class TaskTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Card(
         child: ListTile(
-          title: Text(task.title),
+          title: Padding(
+            padding: const EdgeInsets.only(bottom: 4),
+            child: Text(task.title),
+          ),
           subtitle: Text(task.type.toString()),
           leading: Icon(
             Icons.task_alt,

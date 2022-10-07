@@ -33,15 +33,25 @@ class _SubmitTaskDialogState extends State<SubmitTaskDialog> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                CircleAvatar(
-                  child: IconButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    icon: const Icon(Icons.close),
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    CircleAvatar(
+                      child: IconButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        icon: const Icon(Icons.close),
+                      ),
+                    ),
+                  ],
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15.3 * 2),
-                  child: Text('What time did you take ... ?'),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Utils.transformSize(15.3),
+                    vertical: Utils.transformSize(7.3),
+                  ),
+                  child: Text('What time did you take ${task.title}?',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.bodyLarge),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.3 * 2),
@@ -50,8 +60,16 @@ class _SubmitTaskDialogState extends State<SubmitTaskDialog> {
                     isForce2Digits: true,
                     minutesInterval: 5,
                     onTimeChange: cubit.changeTime,
+                    spacing: 0,
+                    itemHeight: 40,
+                    normalTextStyle: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(color: Colors.grey),
+                    highlightedTextStyle: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
+                SizedBox(height: Utils.transformSize(7.3)),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 5.3 * 2),
                   width: double.infinity,
