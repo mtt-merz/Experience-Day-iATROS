@@ -1,5 +1,4 @@
-import 'package:experience_day_iatros/app/ui/task/task_overview.dart';
-import 'package:experience_day_iatros/app/ui/task/task_screen.dart';
+import 'package:experience_day_iatros/app/ui/home/main_screen.dart';
 import 'package:experience_day_iatros/app/ui/theme.dart';
 import 'package:experience_day_iatros/locator.dart';
 import 'package:flutter/material.dart';
@@ -21,10 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: customThemeData,
-      routes: {
-        'task': (context) => const TaskOverviewScreen(),
-      },
-      home: const TaskScreen(),
+      home: const MainScreen(),
     );
   }
 }

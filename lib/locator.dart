@@ -6,7 +6,7 @@ class Locator {
   static T get<T extends Object>() => GetIt.instance<T>();
 
   static void init() {
-    GetIt.instance.registerFactory(() => TaskRepository());
-    GetIt.instance.registerFactory(() => NetworkService());
+    GetIt.instance.registerSingleton(NetworkService());
+    GetIt.instance.registerSingleton(TaskRepository());
   }
 }

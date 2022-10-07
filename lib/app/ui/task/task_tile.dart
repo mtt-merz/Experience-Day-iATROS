@@ -1,4 +1,5 @@
 import 'package:experience_day_iatros/app/models/task/task.dart';
+import 'package:experience_day_iatros/app/ui/task/task_overview.dart';
 import 'package:flutter/material.dart';
 
 class TaskTile extends StatelessWidget {
@@ -9,8 +10,8 @@ class TaskTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Card(
         child: ListTile(
-          title: const Text('Walking'),
-          subtitle: const Text('Activity, 30 mins'),
+          title: Text(task.title),
+          subtitle: Text(task.type.toString()),
           leading: Icon(
             Icons.task_alt,
             color: Theme.of(context).primaryColor,
@@ -20,11 +21,14 @@ class TaskTile extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(const TimeOfDay(hour: 9, minute: 0).format(context)),
+              Text(TimeOfDay(
+                      hour: task.dueDate.hour, minute: task.dueDate.minute)
+                  .format(context)),
               const Icon(Icons.arrow_forward_ios, size: 16),
             ],
           ),
-          onTap: () => Navigator.of(context).pushNamed('task'),
+          onTap: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => TaskOverviewScreen(task))),
         ),
       );
 }

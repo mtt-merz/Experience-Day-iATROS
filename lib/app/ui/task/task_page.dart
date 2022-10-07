@@ -4,14 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'task_cubit.dart';
 
-class TaskScreen extends StatefulWidget {
-  const TaskScreen({Key? key}) : super(key: key);
+class TaskPage extends StatefulWidget {
+  const TaskPage({Key? key}) : super(key: key);
 
   @override
-  State<TaskScreen> createState() => _TaskScreenState();
+  State<TaskPage> createState() => _TaskPageState();
 }
 
-class _TaskScreenState extends State<TaskScreen> {
+class _TaskPageState extends State<TaskPage> {
   late final cubit = TaskCubit();
 
   @override
@@ -32,6 +32,7 @@ class _TaskScreenState extends State<TaskScreen> {
 
             state as Loaded;
             return ListView(
+              padding: const EdgeInsets.symmetric(vertical: 12),
               children: state.tasks.map((task) => TaskTile(task)).toList(),
             );
           },

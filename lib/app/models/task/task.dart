@@ -21,7 +21,7 @@ class Task {
   final String patientID;
 
   @NullableDateTimeSerializer()
-  final DateTime? completedAt;
+  DateTime? completedAt;
 
   Task._(this.id, this.type, this.title, this.description, this.dose,
       this.dueDate, this.patientID, this.completedAt);

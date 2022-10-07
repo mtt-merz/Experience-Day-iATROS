@@ -13,6 +13,14 @@ class Loaded extends TaskCubitState {
   final List<Task> tasks;
 
   Loaded(this.tasks);
+
+  List<Task> get todayTasks => tasks.where((task) {
+        final today = DateTime.now();
+        return task.dueDate.year == today.year &&
+            task.dueDate.month == today.month &&
+            task.dueDate.day == today.day &&
+            task.completedAt == null;
+      }).toList();
 }
 
 class TaskCubit extends Cubit<TaskCubitState> {
