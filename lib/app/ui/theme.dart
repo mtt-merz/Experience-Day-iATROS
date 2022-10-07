@@ -14,7 +14,7 @@ ThemeData get customThemeData => ThemeData(
       elevatedButtonTheme: _elevatedButtonTheme,
       listTileTheme: _listTileTheme,
       primaryColor: _primaryColor,
-      scaffoldBackgroundColor: Colors.grey.shade200,
+      scaffoldBackgroundColor: Colors.grey.shade100,
       shadowColor: Colors.grey.withOpacity(.1),
       textTheme: _textTheme,
       textButtonTheme: _textButtonTheme,
@@ -92,7 +92,6 @@ final _textTheme = TextTheme(
 
   titleSmall: GoogleFonts.montserrat(
       fontSize: Utils.transformFont(4.7), fontWeight: FontWeight.w600),
-
 
   // Elevated button
   labelLarge: GoogleFonts.montserrat(
